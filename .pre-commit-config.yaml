@@ -1,0 +1,32 @@
+repos:
+  -   repo: git@github.com:psf/black.git
+      rev: 21.6b0
+      hooks:
+      - id: black
+        args: [--line-length=100, --skip-string-normalization]
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+      - id: flake8
+        additional_dependencies: [flake8-bugbear, flake8-eradicate, pep8-naming, dlint]
+        args: ['--config=setup.cfg']
+      - id: check-json
+      - id: check-ast
+      - id: check-yaml
+        args: ['--unsafe']
+      - id: detect-private-key
+  -   repo: https://github.com/asottile/pyupgrade
+      rev: v2.19.4
+      hooks:
+        - id: pyupgrade
+  -   repo: https://github.com/pre-commit/mirrors-isort
+      rev: v5.8.0
+      hooks:
+        - id: isort
+  -   repo: https://github.com/pre-commit/mirrors-mypy
+      rev: v0.902
+      hooks:
+      - id: mypy
+        args: [--follow-imports=silent, --ignore-missing-imports]
+        exclude: "tests/*"
+
