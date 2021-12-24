@@ -1,3 +1,5 @@
 pytest
 pytest-dotenv
 pytest-cov
+chromedriver-binary-auto
+dash[testing]
